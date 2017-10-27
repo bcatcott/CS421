@@ -4,7 +4,7 @@
 using namespace std;
 
 
-
+//Returns true if one of the reserved words is found and prints out the token type and word.
 bool reservedWord(string input) {
 	if (input == "masu") {
 		cout << "Token Type: VERB		Word is: " << input << endl;
