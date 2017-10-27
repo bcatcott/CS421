@@ -7,7 +7,7 @@ using namespace std;
 
 bool reservedWord(string input) {
 	if (input == "masu") {
-		cout << "Token Type: VERB			Word is: " << input << endl;
+		cout << "Token Type: VERB		Word is: " << input << endl;
 		return true;
 	}
 
@@ -27,17 +27,17 @@ bool reservedWord(string input) {
 	}
 
 	else if (input == "desu") {
-		cout << "Token Type: IS				Word is: " << input << endl;
+		cout << "Token Type: IS			Word is: " << input << endl;
 		return true;
 	}
 
 	else if (input == "deshita") {
-		cout << "Token Type: WAS			Word is: " << input << endl;
+		cout << "Token Type: WAS		Word is: " << input << endl;
 		return true;
 	}
 
 	else if (input == "o") {
-		cout << "Token Type: OBJECT			Word is: " << input << endl;
+		cout << "Token Type: OBJECT		Word is: " << input << endl;
 		return true;
 	}
 
@@ -62,7 +62,7 @@ bool reservedWord(string input) {
 	}
 
 	else if (input == "eofm") {
-		cout << "Token Type: EOFM			Word is: " << input << endl;
+		cout << "Token Type: EOFM		Word is: " << input << endl;
 		return true;
 	}
 
