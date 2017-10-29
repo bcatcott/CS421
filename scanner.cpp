@@ -114,11 +114,16 @@ int scanner(tokentype& a, string& w)
 			a = WORD1;
 		else
 			a = WORD2;
+		return 1;
 	}
-	else if (period(w))
+	else if (period(w)) {
 		a = PERIOD;
-	else
+		return 1;
+	}
+	else {
 		a = ERROR;
+		return 0;
+	}
 
 }//the end
 
