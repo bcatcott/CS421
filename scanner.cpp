@@ -72,9 +72,9 @@ typedef enum tokentype {ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VE
 int scanner(tokentype& a, string& w)
 {
 
-  // ** Grab the next word from the file               ***************** BRAD
+  // ** Grab the next word from the file               ***************** BRAD *****************************
 
-  /* *************************DONE
+  /* ************************* REST DONE *****************************
   2. Call the token functions one after another (if-then-else)
      And generate a lexical error if both DFAs failed.
      Let the token_type be ERROR in that case.
@@ -132,7 +132,7 @@ int main()
   	string theword; 
 	string tokens[16] = {"ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR", "EOFM"};
 
-  /*************** BRAD
+  /* ************** BRAD *****************************
 1. get the input file name from the user
 2. open the input file which contains a story written in Japanese (fin.open).
 3. call Scanner repeatedly until the EOF marker is read, and
@@ -144,7 +144,7 @@ int main()
           gakkou  WORD1
           etc.
   */
-
+//***************************** NEEDS FORMATING LIKE ABOVE *****************************
   while (true)
     {
       int tokenInt = scanner(thetype, theword);  // call the scanner
@@ -154,7 +154,7 @@ int main()
 
     }
 
-  // ** close the input file ********************* BRAD
+  // ** close the input file ********************* BRAD *****************************
 
 }// end
 
