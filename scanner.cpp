@@ -135,6 +135,8 @@ int main()
   /* ************** BRAD *****************************
 1. get the input file name from the user
 2. open the input file which contains a story written in Japanese (fin.open).
+
+   ******************* DONE ******************************
 3. call Scanner repeatedly until the EOF marker is read, and
      each time cout the returned results
      e.g. STRING TOKEN-TYPE
@@ -144,13 +146,13 @@ int main()
           gakkou  WORD1
           etc.
   */
-//***************************** NEEDS FORMATING LIKE ABOVE *****************************
+	
   while (true)
     {
       int tokenInt = scanner(thetype, theword);  // call the scanner
 
-       cout << "Type is:" << thetype[tokenInt] << endl;
-       cout << "Word is:" << theword << endl;   
+	  cout << "Word is: " << theword << "	";  cout << "Type is: " << thetype[tokenInt] << endl;
+    
 
     }
 
