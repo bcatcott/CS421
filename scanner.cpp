@@ -8,7 +8,7 @@ using namespace std;
 //=====================================================
 
 // ** MYTOKEN DFA to be replaced by the WORD DFA
-// ** Done by:
+// ** Done by:*************************** TONY *****************************
 // ** RE:
 bool mytoken(string s)
 {
@@ -35,7 +35,7 @@ bool mytoken(string s)
    else return(false);
 }
 
-// ** Add the PERIOD DFA here
+// ** Add the PERIOD DFA here ********************** DONE **********************
 // ** Done by: Cam Tran
 
 bool period(string s) {
@@ -72,9 +72,9 @@ typedef enum tokentype {ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VE
 int scanner(tokentype& a, string& w)
 {
 
-  // ** Grab the next word from the file
+  // ** Grab the next word from the file               ***************** BRAD
 
-  /* 
+  /* *************************DONE
   2. Call the token functions one after another (if-then-else)
      And generate a lexical error if both DFAs failed.
      Let the token_type be ERROR in that case.
@@ -82,6 +82,7 @@ int scanner(tokentype& a, string& w)
      If not reserved, token_type is WORD1 or WORD2.
   4. Return the token type & string  (pass by reference)
   */
+
 	if (mytoken(w)) {
 		char lastChar = w[w.length - 1];
 		
@@ -113,8 +114,11 @@ int scanner(tokentype& a, string& w)
 			a = WORD1;
 		else
 			a = WORD2;
-		
 	}
+	else if (period(w))
+		a = PERIOD;
+	else
+		a = ERROR;
 
 }//the end
 
@@ -128,7 +132,7 @@ int main()
   	string theword; 
 	string tokens[16] = {"ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR", "EOFM"};
 
-  /*
+  /*************** BRAD
 1. get the input file name from the user
 2. open the input file which contains a story written in Japanese (fin.open).
 3. call Scanner repeatedly until the EOF marker is read, and
@@ -148,11 +152,9 @@ int main()
        cout << "Type is:" << thetype[tokenInt] << endl;
        cout << "Word is:" << theword << endl;   
 
-       // ** display the actual type instead of a number
-
     }
 
-  // ** close the input file
+  // ** close the input file ********************* BRAD
 
 }// end
 
