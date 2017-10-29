@@ -63,15 +63,25 @@ int main ()
 {
 	string input;
 	
+	//
+	// Read in from the file
+	//
+	
+	
+	//checks if it is not a reserved word
 	if (!reservedWord(input))
+		//checks if it is a word in the language
 		if (scanner(input)) {
 			char lastChar = input[input.length - 1];
+			
+			//Checks if it ends in a vowel(lowercase) and outputs the word as WORD1
+			//If it does not end in a vowel(lowercase) it outputs the word as WORD2
 			if ((lastChar == 'a') || (lastChar == 'e') || (lastChar == 'i') || (lastChar == 'o') || (lastChar == 'u'))
 				cout << "Token Type: WORD1		Word is: " << input << endl;
 			else
 				cout << "Token Type: WORD2		Word is: " << input << endl;
 		}
-		else
+		else 	//If the word is not in the language, displays an error
 			cout << "Token Type: ERROR		Word is: " << input << endl;
 		
 
