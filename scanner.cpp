@@ -4,7 +4,7 @@
 using namespace std;
 
 //=====================================================
-// File scanner.cpp written by: Group Number: ** 
+// File scanner.cpp written by: Group Number: 10
 //=====================================================
 
 // ** MYTOKEN DFA to be replaced by the WORD DFA
@@ -15,7 +15,7 @@ bool mytoken(string s)
   int state = 0;
   int charpos = 0;
 
-  while (s[charpos] != '\0') 
+  while (s[charpos] != '\0')
     {
       if (state == 0 && s[charpos] == 'a')
       state = 1;
@@ -36,11 +36,31 @@ bool mytoken(string s)
 }
 
 // ** Add the PERIOD DFA here
-// ** Done by:
+// ** Done by: Cam Tran
+
+bool period(string s) {
+	int state = 0;
+  	int charpos = 0;
+	
+	while (s[charpos] != '\0') {
+		if (state == 0 && s[charpos] == '.')
+      			state = 1;
+		else
+			return (false);
+		charpos++;
+	} //end of while
+	
+	// where did I end up????
+  	if (state == 1) 
+		return(true);  // end in a final state
+   	else 
+		return(false);
+}
 
 
 // ** Update the tokentype to be WORD1, WORD2, PERIOD and ERROR.
-typedef enum tokentype {ERROR, };
+typedef enum tokentype {ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRONOUN, CONNECTOR, EOFM};
+
 
 // ** Need the lexicon to be set up here (to be used in Part C)
 // ** Need the reservedwords list to be set up here
@@ -48,7 +68,7 @@ typedef enum tokentype {ERROR, };
 // ** a.out should work without any additional files.
 
 // Scanner processes only one word each time it is called
-// ** Done by: 
+// ** Done by: Cam Tran
 int scanner(tokentype& a, string& w)
 {
 
@@ -62,17 +82,51 @@ int scanner(tokentype& a, string& w)
      If not reserved, token_type is WORD1 or WORD2.
   4. Return the token type & string  (pass by reference)
   */
+	if (mytoken(w)) {
+		char lastChar = w[w.length - 1];
+		
+		if (w == "masu")
+			a = VERB;
+		else if (w == "masen")
+			a = VERBNEG;
+		else if (w == "mashita")
+			a = VERBPAST;
+		else if (w == "masendeshita")
+			a = VERBPASTNEG;
+		else if (w == "desu")
+			a = IS;
+		else if (w == "deshita")
+			a = WAS;
+		else if (w == "o")
+			a = OBJECT;
+		else if (w == "wa")
+			a = SUBJECT;
+		else if (w == "ni")
+			a = DESTINATION;
+		else if (w == "watashi" || w == "anata" || w == "kare" || w == "sore")
+			a = PRONOUN;
+		else if (w == "mata" || w == "soshite" || w == "shikashi" || w == "dakara")
+			a = CONNECTOR;
+		else if (w == "eofm")
+			a = EOFM;
+		else if ((lastChar == 'a') || (lastChar == 'e') || (lastChar == 'i') || (lastChar == 'o') || (lastChar == 'u'))
+			a = WORD1;
+		else
+			a = WORD2;
+		
+	}
 
 }//the end
 
 
 
 // The test driver to call the scanner repeatedly  
-// ** Done by:  **
+// ** Done by:  Cam Tran
 int main()
 {
-  tokentype thetype;
-  string theword; 
+  	tokentype thetype;
+  	string theword; 
+	string tokens[16] = {"ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR", "EOFM"};
 
   /*
 1. get the input file name from the user
@@ -89,9 +143,9 @@ int main()
 
   while (true)
     {
-      scanner(thetype, theword);  // call the scanner
+      int tokenInt = scanner(thetype, theword);  // call the scanner
 
-       cout << "Type is:" << thetype << endl;
+       cout << "Type is:" << thetype[tokenInt] << endl;
        cout << "Word is:" << theword << endl;   
 
        // ** display the actual type instead of a number
