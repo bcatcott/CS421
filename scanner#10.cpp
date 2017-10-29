@@ -71,6 +71,8 @@ int main ()
 			else
 				cout << "Token Type: WORD2		Word is: " << input << endl;
 		}
+		else
+			cout << "Token Type: ERROR		Word is: " << input << endl;
 		
 
 	return 0;
