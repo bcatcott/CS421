@@ -7,6 +7,8 @@ using namespace std;
 // File scanner.cpp written by: Group Number: 10
 //=====================================================
 
+enum tokentype {ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRONOUN, CONNECTOR, EOFM };
+
 // ** Done by:*************************** TONY *****************************
 bool vowel(char letter)
 {
@@ -149,7 +151,7 @@ bool period(string s) {
 
 
 // ** Update the tokentype to be WORD1, WORD2, PERIOD and ERROR.
-typedef enum tokentype {ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRONOUN, CONNECTOR, EOFM};
+
 
 
 // ** Need the lexicon to be set up here (to be used in Part C)
@@ -162,7 +164,7 @@ typedef enum tokentype {ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VE
 int scanner(tokentype& a, string& w)
 {
     
-    
+	
     
     /* ************************* REST DONE *****************************
      // ** Grab the next word from the file
@@ -176,7 +178,7 @@ int scanner(tokentype& a, string& w)
      */
     
     if (word_dfa(w)) {
-        char lastChar = w[w.length - 1];
+        char lastChar = w[w.length() - 1];
         
         if (w == "masu")
             a = VERB;
@@ -252,10 +254,12 @@ int main()
     
     while (true)
     {
-        fin >> theword;
+		fin >> theword;
+        
         int tokenInt = scanner(thetype, theword);  // call the scanner
         
-        cout << "Word is: " << theword << "    ";  cout << "Type is: " << thetype[tokenInt] << endl;
+		if (tokenInt = 1)
+			cout << "Word is: " << theword << "    ";  cout << "Type is: " << tokens[thetype] << endl;
         
         
     }
