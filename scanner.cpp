@@ -7,6 +7,37 @@ using namespace std;
 // File scanner.cpp written by: Group Number: 10
 //=====================================================
 
+
+bool vowel(char letter)
+{
+  const char vow[] = {'a','e','i','o','u','I','E'};
+  for(int i = 0; i < 7; i++)
+  {
+    if(letter == vow[i]) //if the char is in the array
+      return true;
+  }
+    return false;
+}
+bool cons1(char letter)
+{
+  const char cons[] = {'b','g','h','k','m','n','p','r'};
+  for(int i = 0; i < 8; i++)
+    {
+      if(letter == cons[i]) //if the char is in the array
+        return true;
+    }
+      return false;
+}
+bool cons2(char letter)
+{
+  const char cons[] = {'d','j','w','y','z'};
+  for(int i = 0; i < 5; i++)
+    {
+      if(letter == cons[i]) //if the char is in the array
+        return true;
+    }
+      return false;
+}
 // ** MYTOKEN DFA to be replaced by the WORD DFA
 // ** Done by:*************************** TONY *****************************
 // ** RE:
