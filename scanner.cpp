@@ -199,7 +199,7 @@ int scanner(tokentype& a, string& w)
 
 
 // The test driver to call the scanner repeatedly
-// ** Done by:  Cam Tran
+// ** Done by:  Cam Tran & Brad Catcott
 int main()
 {
     tokentype thetype;
