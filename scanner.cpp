@@ -7,7 +7,7 @@ using namespace std;
 // File scanner.cpp written by: Group Number: 10
 //=====================================================
 
-
+// ** Done by:*************************** TONY *****************************
 bool vowel(char letter)
 {
   const char vow[] = {'a','e','i','o','u','I','E'};
@@ -18,6 +18,7 @@ bool vowel(char letter)
   }
     return false;
 }
+// ** Done by:*************************** TONY *****************************
 bool cons1(char letter)
 {
   const char cons[] = {'b','g','h','k','m','n','p','r'};
@@ -28,6 +29,7 @@ bool cons1(char letter)
     }
       return false;
 }
+// ** Done by:*************************** TONY *****************************
 bool cons2(char letter)
 {
   const char cons[] = {'d','j','w','y','z'};
