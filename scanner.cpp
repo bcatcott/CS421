@@ -241,7 +241,13 @@ int main()
           gakkou  WORD1
           etc.
   */
-	
+    fstream fin;
+    string fname;
+    cout<<"Enter input file name"<< endl;
+    
+    cin>>fname;
+    fin.open(fname);
+    
   while (true)
     {
       int tokenInt = scanner(thetype, theword);  // call the scanner
@@ -250,9 +256,11 @@ int main()
     
 
     }
+    fin.close();
+//********************* BRAD *****************************
 
-  // ** close the input file ********************* BRAD *****************************
-
+    
+    
 }// end
 
 
