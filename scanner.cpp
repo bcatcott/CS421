@@ -115,14 +115,11 @@ bool word_dfa(string s)
 
 		else
 		{
-			cout << "I am stuck in state " << state << endl;
 			return(false);
 		}
 		charpos++;
 	}//end of while
 
-	cout << "current state: " << state << endl;
-	// where did I end up????
 	if (state == "q0" || state == "q0q1")
 		return(true);  // end in a final state
 	else
@@ -176,7 +173,7 @@ int scanner(tokentype& a, string& w)
   4. Return the token type & string  (pass by reference)
   */
 
-	if (mytoken(w)) {
+	if (word_dfa(w)) {
 		char lastChar = w[w.length - 1];
 		
 		if (w == "masu")
