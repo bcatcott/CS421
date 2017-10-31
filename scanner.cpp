@@ -10,31 +10,91 @@ using namespace std;
 // ** MYTOKEN DFA to be replaced by the WORD DFA
 // ** Done by:*************************** TONY *****************************
 // ** RE:
-bool mytoken(string s)
+bool word_dfa(string s)
 {
-  int state = 0;
-  int charpos = 0;
+	string state = "q0"; //starting state
+	int charpos = 0; //char index
 
-  while (s[charpos] != '\0')
-    {
-      if (state == 0 && s[charpos] == 'a')
-      state = 1;
-      else
-      if (state == 1 && s[charpos] == 'b')
-      state = 2;
-      else
-      if (state == 2 && s[charpos] == 'b')
-      state = 2;
-      else
-	  return(false);
-      charpos++;
-    }//end of while
+	cout << "Trying the word dfa machine " << endl;
 
-  // where did I end up????
-  if (state == 2) return(true);  // end in a final state
-   else return(false);
+	while (s[charpos] != '\0') //loops through each char in string
+	{
+		cout << "current state: " << state << endl;
+		cout << "character: " << s[charpos] << endl;
+
+		//the following statements set the states
+
+		if (state == "q0" || state == "q0q1")
+		{
+			if (vowel(s[charpos]))
+				state = "q0q1";
+			else if (state == "q0q1" && s[charpos] == 'n')
+				state = "q0";
+			else if (cons1(s[charpos]))
+				state = "q2q5";
+			else if (cons2(s[charpos]))
+				state = "q5";
+			else if (s[charpos] == 't')
+				state = "q3q5";
+			else if (s[charpos] == 's')
+				state = "q4q5";
+			else if (s[charpos] == 'c')
+				state = "q4";
+			else
+				return(false);
+		}
+
+		else if (state == "q2q5")
+		{
+			if (vowel(s[charpos]))
+				state = "q0q1";
+			else if (s[charpos] == 'y')
+				state = "q5";
+		}
+
+		else if (state == "q3q5")
+		{
+			if (vowel(s[charpos]))
+				state = "q0q1";
+			else if (s[charpos] == 's')
+				state = "q5";
+		}
+
+		else if (state == "q4q5")
+		{
+			if (vowel(s[charpos]))
+				state = "q0q1";
+			else if (s[charpos] == 'h')
+				state = "q5";
+		}
+
+		else if (state == "q5")
+		{
+			if (vowel(s[charpos]))
+				state = "q0q1";
+		}
+
+		else if (state == "q4")
+		{
+			if (s[charpos] == 'h')
+				state = "q5";
+		}
+
+		else
+		{
+			cout << "I am stuck in state " << state << endl;
+			return(false);
+		}
+		charpos++;
+	}//end of while
+
+	cout << "current state: " << state << endl;
+	// where did I end up????
+	if (state == "q0" || state == "q0q1")
+		return(true);  // end in a final state
+	else
+		return(false);
 }
-
 // ** Add the PERIOD DFA here ********************** DONE **********************
 // ** Done by: Cam Tran
 
