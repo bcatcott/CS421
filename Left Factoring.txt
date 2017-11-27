@@ -8,7 +8,5 @@
 
 7 <noun> ::= WORD1 | PRONOUN 
 8 <verb> ::= WORD2
-
 9 <be> ::=   IS | WAS
-
 10 <tense> := VERBPAST  | VERBPASTNEG | VERB | VERBNEG
