@@ -2,6 +2,9 @@
 #include <fstream>
 #include <string>
 #include "scanner.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace std;
 
 //=====================================================
@@ -150,6 +153,11 @@ bool period(string s) {
 int scan(tokentype& a, string& w, ifstream& fin)
 {
   fin >> w;
+  if (w == "eofm")
+    {
+      return 0;
+    }
+
     
   if (word_dfa(w)) {
     char lastChar = w[w.length() - 1]; //sets a variable for the last letter to check if WORD1 or WORD2
@@ -190,7 +198,7 @@ int scan(tokentype& a, string& w, ifstream& fin)
   }
   else {
     a = ERROR;
-    return 0;
+    return 1;
   }
     
 }//the end

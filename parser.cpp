@@ -2,6 +2,9 @@
 #include <fstream>
 #include <string>
 #include "scanner.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 
 using namespace std;
 void s ();
@@ -65,8 +68,11 @@ tokentype next_token()
 
   if (!token_available)   // if there is no saved token from previous lookahead
     {
-	  cout << "Scanner was Called..." << endl;
-      scan(saved_token, lexeme, fin); // call scanner to grab a new token
+      cout << "Scanner was Called..." << endl;
+
+      if (scan(saved_token, lexeme, fin)==0)
+	exit(0);
+
       if (saved_token == ERROR)
 	cout << "Lexical Error" << endl;
       token_available = true;                  // mark that fact that you have saved it
@@ -90,7 +96,7 @@ bool match(tokentype expected)
     }
   else  // match has occurred
     {
-	  cout << "Match found for " << tokens(tokentype) << endl;
+      cout << "Match found for " << tokens[expected] << endl;
       token_available = false;  // eat up the token
       return true;              // say there was a match
     }
