@@ -6,7 +6,7 @@
 4 <s2> ::=  <be> PERIOD | DESTINATION <verb> <tense> PERIOD | OBJECT <s3>
 5 <s3> ::=  <verb> <tense> PERIOD | <noun> DESTINATION <verb> <tense> PERIOD 
 
-7 <noun> ::= WORD1 | PRONOUN 
-8 <verb> ::= WORD2
-9 <be> ::=   IS | WAS
-10 <tense> := VERBPAST  | VERBPASTNEG | VERB | VERBNEG
+6 <noun> ::= WORD1 | PRONOUN 
+7 <verb> ::= WORD2
+8 <be> ::=   IS | WAS
+9 <tense> := VERBPAST  | VERBPASTNEG | VERB | VERBNEG
