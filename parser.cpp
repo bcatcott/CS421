@@ -53,9 +53,10 @@ void syntaxerror2(string lexeme, string parserFunction)
 token_type next_token()
 {
 	string lexeme;
+    scanner scan;
 	if (!token_available)   // if there is no saved token from previous lookahead
 	{
-		if (scanner.scan(saved_token, lexeme, fin) == 0)	 // call scanner to grab a new token
+		if (scan.scan(saved_token, lexeme, fin) == 0)	 // call scanner to grab a new token
 			cout << "Lexical error found " << lexeme << endl;
 		token_available = true;                  // mark that fact that you have saved it
 		saved_lexeme = lexeme;
