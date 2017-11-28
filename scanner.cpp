@@ -50,7 +50,7 @@ bool word_dfa(string s)
   string state = "q0"; //starting state
   int charpos = 0; //char index
     
-  cout << "Trying the word dfa machine " << endl;
+  cout << "Scanner was Called..." << endl;
     
   while (s[charpos] != '\0') //loops through each char in string
     {
