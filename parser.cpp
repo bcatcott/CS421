@@ -90,6 +90,7 @@ bool match(token_type expected)
 // Done by: Cam
 void story()
 {
+	cout << "Processing <story>" << endl;
 	s();
 	while (true)
 	{
@@ -116,6 +117,7 @@ void story()
 // Done by: Cam
 void s()
 {
+	cout << "Processing <s>" << endl;
 	if (next_token() == CONNECTOR)    // start of what is in [ ] is found
 		match(saved_token);			// do it
 
@@ -128,6 +130,7 @@ void s()
 // Done by: Cam
 void s1()
 {
+	cout << "Processing <s1>" << endl;
 	switch (next_token())
 	{
 	case WORD2:
@@ -152,6 +155,7 @@ void s1()
 // Done by: Brad
 void s2()
 {
+	cout << "Processing <s2>" << endl;
 	switch (next_token())
 	{
 	case IS:
@@ -181,6 +185,7 @@ void s2()
 // Done by: Brad
 void s3()
 {
+	cout << "Processing <s3>" << endl;
 	switch (next_token())
 	{
 	case WORD2:
@@ -207,6 +212,7 @@ void s3()
 // Done by: Brad
 void noun()
 {
+	cout << "Processing <noun>" << endl;
 	switch (next_token())
 	{
 	case WORD1:
@@ -226,6 +232,7 @@ void noun()
 // Done by: Tony
 void verb()
 {
+	cout << "Processing <verb>" << endl;
 	match(token_type::WORD2);
 }
 
@@ -233,6 +240,7 @@ void verb()
 // Done by: Tony
 void be()
 {
+	cout << "Processing <be>" << endl;
 	switch (next_token())
 	{
 	case IS:
@@ -252,6 +260,7 @@ void be()
 // Done by: Tony
 void tense()
 {
+	cout << "Processing <tense>" << endl;
 	switch (next_token())
 	{
 	case VERBPAST:
