@@ -150,7 +150,7 @@ bool period(string s) {
 
 // Scanner processes only one word each time it is called
 // ** Done by: Cam Tran
-int scanner(token_type& a, string& w)
+int scan(token_type& a, string& w)
 {
     
     if (word_dfa(w)) {
