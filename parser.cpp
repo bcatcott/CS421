@@ -65,6 +65,7 @@ tokentype next_token()
 
   if (!token_available)   // if there is no saved token from previous lookahead
     {
+	  cout << "Scanner was Called..." << endl;
       scan(saved_token, lexeme, fin); // call scanner to grab a new token
       if (saved_token == ERROR)
 	cout << "Lexical Error" << endl;
@@ -89,6 +90,7 @@ bool match(tokentype expected)
     }
   else  // match has occurred
     {
+	  cout << "Match found for " << tokens(tokentype) << endl;
       token_available = false;  // eat up the token
       return true;              // say there was a match
     }
