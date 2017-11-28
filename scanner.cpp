@@ -149,9 +149,10 @@ bool period(string s) {
 
 
 // Scanner processes only one word each time it is called
-// ** Done by: Cam Tran
-int scan(token_type& a, string& w)
+// ** Done by: Cam Tran/Brad
+int scan(token_type& a, string& w, ifstream& fin)
 {
+    fin >> w;
     
     if (word_dfa(w)) {
         char lastChar = w[w.length() - 1]; //sets a variable for the last letter to check if WORD1 or WORD2

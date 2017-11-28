@@ -13,12 +13,13 @@ using namespace std;
 // i.e. Done by:
 
 enum token_type { ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRONOUN, CONNECTOR };
+
 string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR" };
 
 token_type  saved_token;     // global buffer for the scanner token
 
 string saved_lexeme;		// global buffer for the saved lexeme
-
+ifstream fin;               //global file
 							// global flag indicating whether
 							// we have saved a token to eat up or not
 bool   token_available;
@@ -54,7 +55,7 @@ token_type next_token()
 	string lexeme;
 	if (!token_available)   // if there is no saved token from previous lookahead
 	{
-		if (scanner(saved_token, lexeme) == 0)	 // call scanner to grab a new token
+		if (scanner.scan(saved_token, lexeme, fin) == 0)	 // call scanner to grab a new token
 			cout << "Lexical error found " << lexeme << endl;
 		token_available = true;                  // mark that fact that you have saved it
 		saved_lexeme = lexeme;
@@ -285,7 +286,7 @@ void tense()
 }
 
 // The test driver to start the parser
-// Done by: Tony
+// Done by: Tony/Brad
 int main()
 {
 
@@ -301,7 +302,6 @@ int main()
 	string fileName;
 	cout << "please enter a file name" << endl;
 	cin >> fileName;//enter transaction.txt for commands                                                                                                                  
-	ifstream fin;
 	fin.open(fileName.data());
 
 	story();

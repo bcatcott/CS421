@@ -1,11 +1,12 @@
 #include <string>
+#include <fstream>
+
 #ifndef _SCANNER_H
 #define _SCANNER_H
 
 using namespace std;
 
-enum token_type { ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRON\
-    OUN, CONNECTOR };
+enum token_type { ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRONOUN, CONNECTOR };
 
 class scanner
 {
@@ -27,7 +28,7 @@ class scanner
     
     // Scanner processes only one word each time it is called
     // ** Done by: Cam Tran
-    int scan(token_type& a, string& w);
+    int scan(token_type& a, string& w, ifstream& fin);
 };
 
 #endif
