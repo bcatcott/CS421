@@ -54,7 +54,8 @@ token_type next_token()
 	string lexeme;
 	if (!token_available)   // if there is no saved token from previous lookahead
 	{
-		scanner(saved_token, lexeme);  // call scanner to grab a new token
+		if (scanner(saved_token, lexeme) == 0)	 // call scanner to grab a new token
+			cout << "Lexical error found " << lexeme << endl;
 		token_available = true;                  // mark that fact that you have saved it
 		saved_lexeme = lexeme;
 	}
