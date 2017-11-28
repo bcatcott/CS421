@@ -1,11 +1,8 @@
-1 <story> ::= <s> { <s> }  // stay in the loop as long as a possible start
-                           // of <s> is the next_token
-
+1 <story> ::= <s> { <s> }
 2 <s>  ::=  [CONNECTOR] <noun> SUBJECT  <s1>
 3 <s1> ::=  <verb> <tense> PERIOD | <noun> <s2>
 4 <s2> ::=  <be> PERIOD | DESTINATION <verb> <tense> PERIOD | OBJECT <s3>
 5 <s3> ::=  <verb> <tense> PERIOD | <noun> DESTINATION <verb> <tense> PERIOD 
-
 6 <noun> ::= WORD1 | PRONOUN 
 7 <verb> ::= WORD2
 8 <be> ::=   IS | WAS
