@@ -149,7 +149,7 @@ bool period(string s) {
 
 // Scanner processes only one word each time it is called
 // ** Done by: Cam Tran/Brad
-int scan(token_type& a, string& w, ifstream& fin)
+int scan(tokentype& a, string& w, ifstream& fin)
 {
   fin >> w;
     

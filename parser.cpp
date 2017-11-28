@@ -4,6 +4,16 @@
 #include "scanner.h"
 
 using namespace std;
+void s ();
+void s1();
+void s2();
+void s3();
+void noun();
+void verb();
+void be();
+void tense();
+
+
 
 //=================================================
 // File parser.cpp written by Group Number: **
@@ -15,7 +25,7 @@ using namespace std;
 
 string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR" };
 
-token_type  saved_token;     // global buffer for the scanner token
+tokentype  saved_token;     // global buffer for the scanner token
 
 string saved_lexeme;// global buffer for the saved lexeme
 ifstream fin;               //global file
@@ -27,7 +37,7 @@ bool   token_available;
 // ** Need syntaxerror1 and syntaxerror2 functions (each takes 2 args)
 
 // Done by: Brad
-void syntaxerror1(token_type expected, string lexeme)
+void syntaxerror1(tokentype expected, string lexeme)
 {
   cout << "SYNTAX ERROR: expected " << tokens[expected] << " but found " << lexeme << endl;
 }
@@ -49,7 +59,7 @@ void syntaxerror2 (string lexeme, string parserFunction)
 //    Returns the saved_token
 //   
 // Done by: Cam
-token_type next_token()
+tokentype next_token()
 {
   string lexeme;
   scanner scan;
@@ -69,7 +79,7 @@ token_type next_token()
 //  and if so, generates a syntax error and handles the error
 //  else token_available becomes false (eat up) and returns true.
 // Done by: Cam
-bool match(token_type expected)
+bool match(tokentype expected)
 {
   if (next_token() != expected)  // mismatch has occurred with the next token
     { // generate a syntax error message here
@@ -85,7 +95,8 @@ bool match(token_type expected)
 
 
 
-// ** Make each non-terminal into a function here                                   *********ALL OF US***************
+// ** Make each non-terminal into a function here
+// *********ALL OF US***************
 // ** Be sure to put the corresponding grammar rule above each function
 
 // 1 <story> ::= <s> { <s> }
@@ -123,7 +134,7 @@ void s()
     match(saved_token);// do it
 
   noun();
-  match(token_type::SUBJECT);
+  match(SUBJECT);
   s1();
 }
 
@@ -137,7 +148,7 @@ void s1()
     case WORD2:
       verb();
       tense();
-      match(token_type::PERIOD);
+      match(PERIOD);
       break;
 
     case WORD1:
@@ -162,18 +173,18 @@ void s2()
     case IS:
     case WAS:
       be();
-      match(token_type::PERIOD);
+      match(PERIOD);
       break;
 
     case DESTINATION:
-      match(token_type::DESTINATION);
+      match(DESTINATION);
       verb();
       tense();
-      match(token_type::PERIOD);
+      match(PERIOD);
       break;
 
     case OBJECT:
-      match(token_type::OBJECT);
+      match(OBJECT);
       s3();
       break;
 
@@ -192,16 +203,16 @@ void s3()
     case WORD2:
       verb();
       tense();
-      match(token_type::PERIOD);
+      match(PERIOD);
       break;
 
     case WORD1:
     case PRONOUN:
       noun();
-      match(token_type::DESTINATION);
+      match(DESTINATION);
       verb();
       tense();
-      match(token_type::PERIOD);
+      match(PERIOD);
       break;
 
     default:
@@ -217,11 +228,11 @@ void noun()
   switch (next_token())
     {
     case WORD1:
-      match(token_type::WORD1);
+      match(WORD1);
       break;
 
     case PRONOUN:
-      match(token_type::PRONOUN);
+      match(PRONOUN);
       break;
 
     default:
@@ -234,7 +245,7 @@ void noun()
 void verb()
 {
   cout << "Processing <verb>" << endl;
-  match(token_type::WORD2);
+  match(WORD2);
 }
 
 // 8 <be> :: = IS | WAS
@@ -245,11 +256,11 @@ void be()
   switch (next_token())
     {
     case IS:
-      match(token_type::IS);
+      match(IS);
       break;
 
     case WAS:
-      match(token_type::WAS);
+      match(WAS);
       break;
 
     default:
@@ -265,19 +276,19 @@ void tense()
   switch (next_token())
     {
     case VERBPAST:
-      match(token_type::VERBPAST);
+      match(VERBPAST);
       break;
 
     case VERBPASTNEG:
-      match(token_type::VERBPASTNEG);
+      match(VERBPASTNEG);
       break;
 
     case VERB:
-      match(token_type::VERB);
+      match(VERB);
       break;
 
     case VERBNEG:
-      match(token_type::VERBNEG);
+      match(VERBNEG);
       break;
 
     default:
@@ -294,7 +305,7 @@ int main()
   //- calls the <story> to start parsing
   //- closes the input file 
 
-  token_type thetype;
+  tokentype thetype;
   string theword;
   
 
