@@ -1,6 +1,7 @@
-#include<iostream>
-#include<fstream>
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "scanner.h"
 using namespace std;
 
 //=====================================================
@@ -157,81 +158,44 @@ int scanner(token_type& a, string& w)
         
 		//checks reserved words
         if (w == "masu")
-            a = VERB;
+            a = token_type::VERB;
         else if (w == "masen")
-            a = VERBNEG;
+            a = token_type::VERBNEG;
         else if (w == "mashita")
-            a = VERBPAST;
+            a = token_type::VERBPAST;
         else if (w == "masendeshita")
-            a = VERBPASTNEG;
+            a = token_type::VERBPASTNEG;
         else if (w == "desu")
-            a = IS;
+            a = token_type::IS;
         else if (w == "deshita")
-            a = WAS;
+            a = token_type::WAS;
         else if (w == "o")
-            a = OBJECT;
+            a = token_type::OBJECT;
         else if (w == "wa")
-            a = SUBJECT;
+            a = token_type::SUBJECT;
         else if (w == "ni")
-            a = DESTINATION;
+            a = token_type::DESTINATION;
         else if (w == "watashi" || w == "anata" || w == "kare" || w == "sore")
-            a = PRONOUN;
+            a = token_type::PRONOUN;
         else if (w == "mata" || w == "soshite" || w == "shikashi" || w == "dakara")
-            a = CONNECTOR;
+            a = token_type::CONNECTOR;
         else if ((lastChar == 'I') || (lastChar == 'E')) //checks if it ends in capital I or E for WORD2
-            a = WORD2;
+            a = token_type::WORD2;
         else
-            a = WORD1;
+            a = token_type::WORD1;
         return 1;
     }
 	//runs the period dfa
     else if (period(w)) {
-        a = PERIOD;
+        a = token_type::PERIOD;
         return 1;
     }
     else {
-        a = ERROR;
+        a = token_type::ERROR;
         return 0;
     }
     
 }//the end
-
-
-
-// The test driver to call the scanner repeatedly
-// ** Done by:  Cam Tran
-int main()
-{
-    token_type thetype;
-    string theword;
-    string tokens[15] = {"ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
-    
-
-    fstream fin;
-    string fname;
-    cout<<"Enter input file name"<< endl;
-    
-    cin>>fname;
-    fin.open(fname);
-    
-    while (true) //keep going until you hit eofm
-    {
-		fin >> theword;
-        
-        int tokenInt = scanner(thetype, theword);  // call the scanner
-
-		if (theword == "eofm")
-			break;
-        
-		cout << "Word is: " << theword << "    ";  cout << "Type is: " << tokens[thetype] << endl;
-        
-
-        
-    }
-    fin.close();
-
-    
-}// end
 
 
 

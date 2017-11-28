@@ -13,6 +13,7 @@ using namespace std;
 // i.e. Done by:
 
 enum token_type { ERROR, WORD1, WORD2, PERIOD, VERB, VERBNEG, VERBPAST, VERBPASTNEG, IS, WAS, OBJECT, SUBJECT, DESTINATION, PRONOUN, CONNECTOR };
+string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR" };
 
 token_type  saved_token;     // global buffer for the scanner token
 
@@ -23,16 +24,18 @@ string saved_lexeme;		// global buffer for the saved lexeme
 bool   token_available;
 
 
-// ** Need syntaxerror1 and syntaxerror2 functions (each takes 2 args)                   ***********BRAD**************
+// ** Need syntaxerror1 and syntaxerror2 functions (each takes 2 args)
 
+// Done by: Brad
 void syntaxerror1(token_type expected, string lexeme)
 {
-
+	cout << "SYNTAX ERROR: expected " << tokens[expected] << " but found " << lexeme << endl;
 }
 
+// Done by: Brad
 void syntaxerror2(string lexeme, string parserFunction)
 {
-
+	cout << "SYNTAX ERROR: unexpected " << lexeme << " found in " << parserFunction << endl;
 }
 
 // ** Need the updated match and next_token (with 2 global vars)
@@ -146,7 +149,7 @@ void s1()
 }
 
 // 4 <s2> ::=  <be> PERIOD | DESTINATION <verb> <tense> PERIOD | OBJECT <s3>
-// Done by: Cam
+// Done by: Brad
 void s2()
 {
 	switch (next_token())
@@ -174,15 +177,127 @@ void s2()
 	}
 }
 
+// 5 <s3> :: = <verb> <tense> PERIOD | <noun> DESTINATION <verb> <tense> PERIOD
+// Done by: Brad
+void s3()
+{
+	switch (next_token())
+	{
+	case WORD2:
+		verb();
+		tense();
+		match(token_type::PERIOD);
+		break;
+
+	case WORD1:
+	case PRONOUN:
+		noun();
+		match(token_type::DESTINATION);
+		verb();
+		tense();
+		match(token_type::PERIOD);
+		break;
+
+	default:
+		syntaxerror2(saved_lexeme, "s3");
+	}
+}
+
+// 6 <noun> :: = WORD1 | PRONOUN
+// Done by: Brad
+void noun()
+{
+	switch (next_token())
+	{
+	case WORD1:
+		match(token_type::WORD1);
+		break;
+
+	case PRONOUN:
+		match(token_type::PRONOUN);
+		break;
+
+	default:
+		syntaxerror2(saved_lexeme, "noun");
+	}
+}
+
+// 7 <verb> ::= WORD2
+// Done by: Tony
+void verb()
+{
+	match(token_type::WORD2);
+}
+
+// 8 <be> :: = IS | WAS
+// Done by: Tony
+void be()
+{
+	switch (next_token())
+	{
+	case IS:
+		match(token_type::IS);
+		break;
+
+	case WAS:
+		match(token_type::WAS);
+		break;
+
+	default:
+		syntaxerror2(saved_lexeme, "be");
+	}
+}
+
+// 9 <tense> : = VERBPAST | VERBPASTNEG | VERB | VERBNEG
+// Done by: Tony
+void tense()
+{
+	switch (next_token())
+	{
+	case VERBPAST:
+		match(token_type::VERBPAST);
+		break;
+
+	case VERBPASTNEG:
+		match(token_type::VERBPASTNEG);
+		break;
+
+	case VERB:
+		match(token_type::VERB);
+		break;
+
+	case VERBNEG:
+		match(token_type::VERBNEG);
+		break;
+
+	default:
+		syntaxerror2(saved_lexeme, "tense");
+	}
+}
+
 // The test driver to start the parser
-// Done by:												************************TONY********************
+// Done by: Tony
 int main()
 {
-	string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR" };
 
 	//- opens the input file
 	//- calls the <story> to start parsing
 	//- closes the input file 
+
+	token_type thetype;
+	string theword;
+	
+
+
+	string fileName;
+	cout << "please enter a file name" << endl;
+	cin >> fileName;//enter transaction.txt for commands                                                                                                                  
+	ifstream fin;
+	fin.open(fileName.data());
+
+	story();
+	
+	fin.close();
 
 }// end
  //** should require no other input files!
