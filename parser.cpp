@@ -106,9 +106,8 @@ void story()
 			case PRONOUN:	s();		// found another beginning 
 										// so do it
 							break;
-			default:  syntaxerror2(saved_lexeme, "story");	// no more 
-
-			return;  // loop stops
+			default: 
+				return;  // loop stops
 		}//end switch
 	}//end loop
 }
