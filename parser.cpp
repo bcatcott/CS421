@@ -68,15 +68,16 @@ tokentype next_token()
 
   if (!token_available)   // if there is no saved token from previous lookahead
     {
-      cout << "Scanner was Called..." << endl;
-
-      if (scan(saved_token, lexeme, fin)==0)
-	exit(0);
-
-      if (saved_token == ERROR)
-	cout << "Lexical Error" << endl;
-      token_available = true;                  // mark that fact that you have saved it
-      saved_lexeme = lexeme;
+      	cout << "Scanner was Called..." << endl;
+	if (scan(saved_token, lexeme, fin)==0)
+		saved_lexeme = lexeme;
+	else 
+	{
+		if (saved_token == ERROR) 
+			cout << "Lexical Error" << endl;
+     		token_available = true;                  // mark that fact that you have saved it
+      		saved_lexeme = lexeme;
+	}
     }
   return saved_token;    // return the saved token
 }
