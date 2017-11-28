@@ -69,15 +69,12 @@ tokentype next_token()
   if (!token_available)   // if there is no saved token from previous lookahead
     {
       	cout << "Scanner was Called..." << endl;
-	if (scan(saved_token, lexeme, fin)==0)
-		saved_lexeme = lexeme;
-	else 
-	{
-		if (saved_token == ERROR) 
-			cout << "Lexical Error" << endl;
-     		token_available = true;                  // mark that fact that you have saved it
-      		saved_lexeme = lexeme;
-	}
+	scan(saved_token, lexeme, fin)
+	if (saved_token == ERROR) 
+		cout << "Lexical Error" << endl;
+     	token_available = true;                  // mark that fact that you have saved it
+      	saved_lexeme = lexeme;
+
     }
   return saved_token;    // return the saved token
 }
@@ -90,6 +87,8 @@ tokentype next_token()
 // Done by: Cam
 bool match(tokentype expected)
 {
+	if (saved_lexeme == "eofm")
+		exit(0);
   if (next_token() != expected)  // mismatch has occurred with the next token
     { // generate a syntax error message here
       // do error handling here if any
