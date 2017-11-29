@@ -26,7 +26,7 @@ void tense();
 // i.e. Done by:
 
 
-string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
+string tokens[15] = {"EOFM", "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
 
 tokentype  saved_token;     // global buffer for the scanner token
 
@@ -71,7 +71,7 @@ tokentype next_token()
   if (!token_available)   // if there is no saved token from previous lookahead
     {
       	cout << "Scanner was Called..." << endl;
-	scan(saved_token, lexeme, fin)
+	scan(saved_token, lexeme, fin);
 	if (saved_token == ERROR) 
 		cout << "Lexical Error" << endl;
      	token_available = true;                  // mark that fact that you have saved it
@@ -133,6 +133,8 @@ void story()
 	case PRONOUN:s();// found another beginning 
 	  // so do it
 	  break;
+	      case EOFM:
+		      return;
 	default: 
 	  return;  // loop stops
 	}//end switch
