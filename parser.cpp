@@ -26,7 +26,7 @@ void tense();
 // i.e. Done by:
 
 
-string tokens[15] = {"EOFM", "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
+string tokens[16] = {"EOFM", "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
 
 tokentype  saved_token;     // global buffer for the scanner token
 
@@ -72,6 +72,7 @@ tokentype next_token()
     {
       	cout << "Scanner was Called..." << endl;
 	scan(saved_token, lexeme, fin);
+        scan(saved_token, lexeme, fin);
 	if (saved_token == ERROR) 
 		cout << "Lexical Error" << endl;
      	token_available = true;                  // mark that fact that you have saved it
