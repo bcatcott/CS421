@@ -26,9 +26,11 @@ void tense();
 // i.e. Done by:
 
 
-string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR" };
+string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
 
 tokentype  saved_token;     // global buffer for the scanner token
+
+bool eofmFlag = false;
 
 string saved_lexeme;// global buffer for the saved lexeme
 ifstream fin;               //global file
@@ -88,7 +90,11 @@ tokentype next_token()
 bool match(tokentype expected)
 {
 	if (saved_lexeme == "eofm")
+	{
+		eofmFlag = true;
 		exit(0);
+	}
+		
   if (next_token() != expected)  // mismatch has occurred with the next token
     { // generate a syntax error message here
       // do error handling here if any
@@ -114,7 +120,7 @@ void story()
 {
   cout << "Processing <story>" << endl;
   s();
-  while (true)
+  while (!eofmFlag)
     {
       switch (next_token()) // look ahead to see if the valid start is there
 	{
