@@ -26,11 +26,9 @@ void tense();
 // i.e. Done by:
 
 
-string tokens[16] = {"EOFM", "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR"};
+string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR" };
 
 tokentype  saved_token;     // global buffer for the scanner token
-
-bool eofmFlag = false;
 
 string saved_lexeme;// global buffer for the saved lexeme
 ifstream fin;               //global file
@@ -71,8 +69,7 @@ tokentype next_token()
   if (!token_available)   // if there is no saved token from previous lookahead
     {
       	cout << "Scanner was Called..." << endl;
-	scan(saved_token, lexeme, fin);
-        scan(saved_token, lexeme, fin);
+	scan(saved_token, lexeme, fin)
 	if (saved_token == ERROR) 
 		cout << "Lexical Error" << endl;
      	token_available = true;                  // mark that fact that you have saved it
@@ -91,11 +88,7 @@ tokentype next_token()
 bool match(tokentype expected)
 {
 	if (saved_lexeme == "eofm")
-	{
-		eofmFlag = true;
 		exit(0);
-	}
-		
   if (next_token() != expected)  // mismatch has occurred with the next token
     { // generate a syntax error message here
       // do error handling here if any
@@ -121,7 +114,7 @@ void story()
 {
   cout << "Processing <story>" << endl;
   s();
-  while (!eofmFlag)
+  while (true)
     {
       switch (next_token()) // look ahead to see if the valid start is there
 	{
@@ -134,8 +127,6 @@ void story()
 	case PRONOUN:s();// found another beginning 
 	  // so do it
 	  break;
-	      case EOFM:
-		      return;
 	default: 
 	  return;  // loop stops
 	}//end switch
