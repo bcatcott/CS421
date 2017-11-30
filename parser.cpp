@@ -70,6 +70,8 @@ tokentype next_token()
 
   if (!token_available)   // if there is no saved token from previous lookahead
     {
+	  if (saved_lexeme == "eofm")
+		  exit(0);
       	cout << "Scanner was Called..." << endl;
 	scan(saved_token, lexeme, fin);
 	if (saved_token == ERROR) {
