@@ -77,6 +77,7 @@ tokentype next_token()
 	if (saved_token == ERROR) {
 	  cout << "Lexical Error found in " << lexeme << endl;
 		saved_lexeme == "eofm";
+		return;
 	}
      	token_available = true;                  // mark that fact that you have saved it
       	saved_lexeme = lexeme;
