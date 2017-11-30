@@ -77,7 +77,6 @@ tokentype next_token()
 	scan(saved_token, lexeme, fin);
 	if (saved_token == ERROR) {
 	  cout << "Lexical Error found in " << lexeme << endl;
-		exitFlag = true;
 	}
      	token_available = true;                  // mark that fact that you have saved it
       	saved_lexeme = lexeme;
