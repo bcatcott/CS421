@@ -43,12 +43,14 @@ bool   token_available;
 void syntaxerror1(tokentype expected, string lexeme)
 {
   cout << "SYNTAX ERROR: expected " << tokens[expected] << " but found " << lexeme << endl;
+	saved_lexeme == "eofm";
 }
 
 // Done by: Brad
 void syntaxerror2 (string lexeme, string parserFunction)
 {
   cout << "SYNTAX ERROR: unexpected " << lexeme << " found in " << parserFunction << endl;
+	saved_lexeme == "eofm";
 }
 
 // ** Need the updated match and next_token (with 2 global vars)
@@ -70,10 +72,16 @@ tokentype next_token()
     {
       	cout << "Scanner was Called..." << endl;
 	scan(saved_token, lexeme, fin);
-	if (saved_token == ERROR) 
+	if (saved_token == ERROR) {
 	  cout << "Lexical Error found in " << lexeme << endl;
+<<<<<<< HEAD
      	token_available = true;
         // mark that fact that you have saved it
+=======
+		saved_lexeme == "eofm";
+	}
+     	token_available = true;                  // mark that fact that you have saved it
+>>>>>>> origin/master
       	saved_lexeme = lexeme;
 
     }
