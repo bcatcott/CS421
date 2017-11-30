@@ -30,6 +30,7 @@ string tokens[15] = { "ERROR", "WORD1", "WORD2", "PERIOD", "VERB", "VERBNEG", "V
 
 tokentype  saved_token;     // global buffer for the scanner token
 
+bool exitFlag = false;
 string saved_lexeme;// global buffer for the saved lexeme
 ifstream fin;               //global file
 // global flag indicating whether
@@ -43,14 +44,14 @@ bool   token_available;
 void syntaxerror1(tokentype expected, string lexeme)
 {
   cout << "SYNTAX ERROR: expected " << tokens[expected] << " but found " << lexeme << endl;
-	saved_lexeme == "eofm";
+	exitFlag = true;
 }
 
 // Done by: Brad
 void syntaxerror2 (string lexeme, string parserFunction)
 {
   cout << "SYNTAX ERROR: unexpected " << lexeme << " found in " << parserFunction << endl;
-	saved_lexeme == "eofm";
+	exitFlag = true;
 }
 
 // ** Need the updated match and next_token (with 2 global vars)
@@ -70,14 +71,13 @@ tokentype next_token()
 
   if (!token_available)   // if there is no saved token from previous lookahead
     {
-	  if (saved_lexeme == "eofm")
+	  if (exitFlag)
 		  exit(0);
       	cout << "Scanner was Called..." << endl;
 	scan(saved_token, lexeme, fin);
 	if (saved_token == ERROR) {
 	  cout << "Lexical Error found in " << lexeme << endl;
-		saved_lexeme == "eofm";
-		return;
+		exitFlag = true;
 	}
      	token_available = true;                  // mark that fact that you have saved it
       	saved_lexeme = lexeme;
@@ -94,8 +94,8 @@ tokentype next_token()
 // Done by: Cam
 bool match(tokentype expected)
 {
-	if (saved_lexeme == "eofm")
-		exit(0);
+	if (exitFlag)
+		return false;
   if (next_token() != expected)  // mismatch has occurred with the next token
     { // generate a syntax error message here
       // do error handling here if any
