@@ -80,7 +80,8 @@ bool word_dfa(string s)
       else if (state == "q2q5")
         {
 	  if (vowel(s[charpos]))
-	    state = "q0q1";
+            state = "q0q1";
+
 	  else if (s[charpos] == 'y')
 	    state = "q5";
         }
