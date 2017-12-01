@@ -99,6 +99,7 @@ bool match(tokentype expected)
     { // generate a syntax error message here
       // do error handling here if any
       syntaxerror1(expected, saved_lexeme);
+	  return false;
     }
   else  // match has occurred
     {
@@ -118,10 +119,14 @@ bool match(tokentype expected)
 // Done by: Cam
 void story()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <story>" << endl;
   s();
   while (true)
     {
+	  if (exitFlag)
+		  return;
       switch (next_token()) // look ahead to see if the valid start is there
 	{
 	case CONNECTOR: s();// found another beginning 
@@ -144,6 +149,8 @@ void story()
 // Done by: Cam
 void s()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <s>" << endl;
   if (next_token() == CONNECTOR)    // start of what is in [ ] is found
     match(saved_token);// do it
@@ -157,6 +164,8 @@ void s()
 // Done by: Cam
 void s1()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <s1>" << endl;
   switch (next_token())
     {
@@ -182,6 +191,8 @@ void s1()
 // Done by: Brad
 void s2()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <s2>" << endl;
   switch (next_token())
     {
@@ -212,6 +223,8 @@ void s2()
 // Done by: Brad
 void s3()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <s3>" << endl;
   switch (next_token())
     {
@@ -239,6 +252,8 @@ void s3()
 // Done by: Brad
 void noun()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <noun>" << endl;
   switch (next_token())
     {
@@ -259,6 +274,8 @@ void noun()
 // Done by: Tony
 void verb()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <verb>" << endl;
   match(WORD2);
 }
@@ -267,6 +284,8 @@ void verb()
 // Done by: Tony
 void be()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <be>" << endl;
   switch (next_token())
     {
@@ -287,6 +306,8 @@ void be()
 // Done by: Tony
 void tense()
 {
+	if (exitFlag)
+		return;
   cout << "Processing <tense>" << endl;
   switch (next_token())
     {
@@ -319,10 +340,6 @@ int main()
   //- opens the input file
   //- calls the <story> to start parsing
   //- closes the input file 
-
-  tokentype thetype;
-  string theword;
-  
 
 
   string fileName;
