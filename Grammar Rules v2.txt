@@ -1,0 +1,14 @@
+1 <story> ::= <s> { <s> }
+
+2 <s>  ::=  [CONNECTOR #getEword# #gen#] <noun> #getEword# SUBJECT #gen# <s1>
+
+3 <afterSubject> ::=  <verb> #getEword# #gen# <tense> #gen# PERIOD | <noun> #getEword# <s2>
+
+4 <afterNoun> ::=  <be> #gen# PERIOD | DESTINATION #gen# <verb> #getEword# #gen# <tense> #gen# PERIOD | OBJECT #gen# <s3>
+
+5 <afterObject> ::=  <verb> #getEword# #gen# <tense> #gen# PERIOD | <noun> #getEword# DESTINATION #gen# <verb> #getEword# #gen# <tense> #gen# PERIOD 
+
+6 <noun> ::= WORD1 | PRONOUN 
+7 <verb> ::= WORD2
+8 <be> ::=   IS | WAS
+9 <tense> := VERBPAST  | VERBPASTNEG | VERB | VERBNEG
