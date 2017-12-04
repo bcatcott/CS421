@@ -19,85 +19,60 @@ bool word_dfa(string s)
 	//cout << "Inside of the myword function" << endl;
 	while (s[charpos] != '\0')
 	{
+		//DFA states and transitions
 		if (state == 0 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
-		else
-		if (state == 0 && (s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'n' || s[charpos] == 'p' || s[charpos] == 'r'))
+		else if (state == 0 && (s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'n' || s[charpos] == 'p' || s[charpos] == 'r'))
 			state = 5;
-		else
-		if (state == 0 && (s[charpos] == 'c'))
+		else if (state == 0 && (s[charpos] == 'c'))
 			state = 4;
-		else
-		if (state == 0 && (s[charpos] == 'd' || s[charpos] == 'j' || s[charpos] == 'w' || s[charpos] == 'y' || s[charpos] == 'z'))
+		else if (state == 0 && (s[charpos] == 'd' || s[charpos] == 'j' || s[charpos] == 'w' || s[charpos] == 'y' || s[charpos] == 'z'))
 			state = 3;
-		else	
-		if (state == 0 && (s[charpos] == 's'))
+		else if (state == 0 && (s[charpos] == 's'))
 			state = 2;
-		else
-		if (state == 0 && (s[charpos] == 't'))
+		else if (state == 0 && (s[charpos] == 't'))
 			state = 1;
-		else
-		if (state == 6 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
+		else if (state == 6 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
-		else
-		if (state == 6 && (s[charpos] == 'n'))
+		else if (state == 6 && (s[charpos] == 'n'))
 			state = 7;
-		else
-		if (state == 6 && (s[charpos] == 't'))
+		else if (state == 6 && (s[charpos] == 't'))
 			state = 1;
-		else
-		if (state == 6 && (s[charpos] == 's'))
+		else if (state == 6 && (s[charpos] == 's'))
 			state = 2;
-		else
-		if (state == 6 && (s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'p' || s[charpos] == 'r'))
+		else if (state == 6 && (s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'p' || s[charpos] == 'r'))
 			state = 5;
-		else
-		if (state == 6 && (s[charpos] == 'd' || s[charpos] == 'j' || s[charpos] == 'w' || s[charpos] == 'y' || s[charpos] == 'z'))
+		else if (state == 6 && (s[charpos] == 'd' || s[charpos] == 'j' || s[charpos] == 'w' || s[charpos] == 'y' || s[charpos] == 'z'))
 			state = 3;
-		else
-		if (state == 6 && (s[charpos] == 'c'))
+		else if (state == 6 && (s[charpos] == 'c'))
 			state = 4;
-		else
-		if (state == 7 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
+		else if (state == 7 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
-		else
-		if (state == 7 && (s[charpos] == 't'))
+		else if (state == 7 && (s[charpos] == 't'))
 			state = 1;
-		else
-		if (state == 7 && (s[charpos] == 's'))
+		else if (state == 7 && (s[charpos] == 's'))
 			state = 2;
-		else
-		if (state == 7 && (s[charpos] == 'd' || s[charpos] == 'j' || s[charpos] == 'w' || s[charpos] == 'y' || s[charpos] == 'z'))
+		else if (state == 7 && (s[charpos] == 'd' || s[charpos] == 'j' || s[charpos] == 'w' || s[charpos] == 'y' || s[charpos] == 'z'))
 			state = 3;
-		else
-		if (state == 7 && (s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'n' || s[charpos] == 'p' || s[charpos] == 'r'))
+		else if (state == 7 && (s[charpos] == 'b' || s[charpos] == 'g' || s[charpos] == 'h' || s[charpos] == 'k' || s[charpos] == 'm' || s[charpos] == 'n' || s[charpos] == 'p' || s[charpos] == 'r'))
 			state = 5;
-		else
-		if (state == 7 && (s[charpos] == 'c'))
+		else if (state == 7 && (s[charpos] == 'c'))
 			state = 4;
-		else
-		if (state == 1 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
+		else if (state == 1 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
-		else
-		if (state == 2 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
+		else if (state == 2 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
-		else
-		if (state == 3 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
+		else if (state == 3 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
-		else
-		if (state == 1 && (s[charpos] == 's'))
+		else if (state == 1 && (s[charpos] == 's'))
 			state = 3;
-		else
-		if (state == 2 && (s[charpos] == 'h'))
+		else if (state == 2 && (s[charpos] == 'h'))
 			state = 3;
-		else
-		if (state == 4 && (s[charpos] == 'h'))
+		else if (state == 4 && (s[charpos] == 'h'))
 			state = 3;
-		else
-		if (state == 5 && (s[charpos] == 'y'))
+		else if (state == 5 && (s[charpos] == 'y'))
 			state = 3;
-		else
-		if (state == 5 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
+		else if (state == 5 && (s[charpos] == 'a' || s[charpos] == 'e' || s[charpos] == 'E' || s[charpos] == 'i' || s[charpos] == 'I' || s[charpos] == 'o' || s[charpos] == 'u'))
 			state = 6;
 		else
 		{
