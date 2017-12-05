@@ -1,10 +1,10 @@
 1 <story> ::= <s> { <s> }
 
-2 <s>  ::=  [CONNECTOR #getEword# #gen#] <noun> #getEword# SUBJECT #gen# <s1>
+2 <s>  ::=  [CONNECTOR #getEword# #gen#] <noun> #getEword# SUBJECT #gen# <afterSubject>
 
-3 <afterSubject> ::=  <verb> #getEword# #gen# <tense> #gen# PERIOD | <noun> #getEword# <s2>
+3 <afterSubject> ::=  <verb> #getEword# #gen# <tense> #gen# PERIOD | <noun> #getEword# <afterNoun>
 
-4 <afterNoun> ::=  <be> #gen# PERIOD | DESTINATION #gen# <verb> #getEword# #gen# <tense> #gen# PERIOD | OBJECT #gen# <s3>
+4 <afterNoun> ::=  <be> #gen# PERIOD | DESTINATION #gen# <verb> #getEword# #gen# <tense> #gen# PERIOD | OBJECT #gen# <afterObject>
 
 5 <afterObject> ::=  <verb> #getEword# #gen# <tense> #gen# PERIOD | <noun> #getEword# DESTINATION #gen# <verb> #getEword# #gen# <tense> #gen# PERIOD 
 
