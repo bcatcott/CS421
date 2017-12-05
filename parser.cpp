@@ -8,9 +8,9 @@
 
 using namespace std;
 void s();
-void s1();
-void s2();
-void s3();
+void afterSubject();
+void afterNoun();
+void afterObject();
 void noun();
 void verb();
 void be();
@@ -19,7 +19,7 @@ void tense();
 
 
 //=================================================
-// File parser.cpp written by Group Number: **
+// File parser.cpp written by Group Number: 10
 //=================================================
 
 // ** Be sure to put the name of the programmer above each function
@@ -112,7 +112,6 @@ bool match(tokentype expected)
 
 
 // ** Make each non-terminal into a function here
-// *********ALL OF US***************
 // ** Be sure to put the corresponding grammar rule above each function
 
 // 1 <story> ::= <s> { <s> }
@@ -145,24 +144,24 @@ void story()
 }
 
 
-//2 <s>  :: = [CONNECTOR] <noun> SUBJECT  <s1>
+//2 <s>  ::=  [CONNECTOR] <noun> SUBJECT <afterSubject>
 // Done by: Cam
 void s()
 {
 	if (exitFlag)
 		return;
-	cout << "Processing <s>" << endl;
+	cout << "Processing <afterSubject>" << endl;
 	if (next_token() == CONNECTOR)    // start of what is in [ ] is found
 		match(saved_token);// do it
 
 	noun();
 	match(SUBJECT);
-	s1();
+	afterSubject();
 }
 
-// 3 <s1> :: = <verb> <tense> PERIOD | <noun> <s2>
+// 3 <afterSubject> ::=  <verb> <tense> PERIOD | <noun> <afterNoun>
 // Done by: Cam
-void s1()
+void afterSubject()
 {
 	if (exitFlag)
 		return;
@@ -178,7 +177,7 @@ void s1()
 	case WORD1:
 	case PRONOUN:
 		noun();
-		s2();
+		afterNoun();
 		break;
 
 	default:
@@ -187,9 +186,9 @@ void s1()
 
 }
 
-// 4 <s2> ::=  <be> PERIOD | DESTINATION <verb> <tense> PERIOD | OBJECT <s3>
+// 4 <afterNoun> :: = <be> PERIOD | DESTINATION <verb> <tense> PERIOD | OBJECT <afterObject>
 // Done by: Brad
-void s2()
+void afterNoun()
 {
 	if (exitFlag)
 		return;
@@ -211,7 +210,7 @@ void s2()
 
 	case OBJECT:
 		match(OBJECT);
-		s3();
+		afterObject();
 		break;
 
 	default:
@@ -219,9 +218,9 @@ void s2()
 	}
 }
 
-// 5 <s3> :: = <verb> <tense> PERIOD | <noun> DESTINATION <verb> <tense> PERIOD
+// 5 <afterObject> ::=  <verb> <tense> PERIOD | <noun> DESTINATION <verb> <tense> PERIOD 
 // Done by: Brad
-void s3()
+void afterObject()
 {
 	if (exitFlag)
 		return;
