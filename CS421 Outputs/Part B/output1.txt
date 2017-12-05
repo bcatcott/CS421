@@ -1,0 +1,158 @@
+please enter a file name
+partBtest1
+Processing <story>
+Processing <s>
+Scanner called using word: watashi
+Processing <noun>
+Match found for PRONOUN
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: rika
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: desu
+Processing <be>
+Match found for IS
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: watashi
+Processing <s>
+Processing <noun>
+Match found for PRONOUN
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: sensei
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: desu
+Processing <be>
+Match found for IS
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: rika
+Processing <s>
+Processing <noun>
+Match found for WORD1
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: gohan
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: o
+Match found for OBJECT
+Processing <afterObject>
+Scanner called using word: tabE
+Processing <verb>
+Match found for WORD2
+Processing <tense>
+Scanner called using word: masu
+Match found for VERB
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: watashi
+Processing <s>
+Processing <noun>
+Match found for PRONOUN
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: tesuto
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: o
+Match found for OBJECT
+Processing <afterObject>
+Scanner called using word: seito
+Processing <noun>
+Match found for WORD1
+Scanner called using word: ni
+Match found for DESTINATION
+Processing <verb>
+Scanner called using word: agE
+Match found for WORD2
+Processing <tense>
+Scanner called using word: mashita
+Match found for VERBPAST
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: shikashi
+Processing <s>
+Match found for CONNECTOR
+Processing <noun>
+Scanner called using word: seito
+Match found for WORD1
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: yorokobI
+Processing <verb>
+Match found for WORD2
+Processing <tense>
+Scanner called using word: masendeshita
+Match found for VERBPASTNEG
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: dakara
+Processing <s>
+Match found for CONNECTOR
+Processing <noun>
+Scanner called using word: watashi
+Match found for PRONOUN
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: kanashii
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: deshita
+Processing <be>
+Match found for WAS
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: soshite
+Processing <s>
+Match found for CONNECTOR
+Processing <noun>
+Scanner called using word: rika
+Match found for WORD1
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: toire
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: ni
+Match found for DESTINATION
+Processing <verb>
+Scanner called using word: ikI
+Match found for WORD2
+Processing <tense>
+Scanner called using word: mashita
+Match found for VERBPAST
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: rika
+Processing <s>
+Processing <noun>
+Match found for WORD1
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: nakI
+Processing <verb>
+Match found for WORD2
+Processing <tense>
+Scanner called using word: mashita
+Match found for VERBPAST
+Scanner called using word: .
+Match found for PERIOD
+Scanner called using word: eofm

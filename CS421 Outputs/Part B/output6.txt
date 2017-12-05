@@ -1,0 +1,8 @@
+please enter a file name
+partBtest6
+Processing <story>
+Processing <s>
+Scanner called using word: apple
+Lexical Error: apple is not a valid token
+Processing <noun>
+SYNTAX ERROR: unexpected apple found in noun

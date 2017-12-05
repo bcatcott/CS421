@@ -1,0 +1,7 @@
+please enter a file name
+partBtest5
+Processing <story>
+Processing <s>
+Scanner called using word: wa
+Processing <noun>
+SYNTAX ERROR: unexpected wa found in noun

@@ -1,0 +1,16 @@
+please enter a file name
+partBtest4
+Processing <story>
+Processing <s>
+Scanner called using word: watashi
+Processing <noun>
+Match found for PRONOUN
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: rika
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: mashita
+SYNTAX ERROR: unexpected mashita found in afterNoun

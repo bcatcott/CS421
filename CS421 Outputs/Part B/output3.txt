@@ -1,0 +1,11 @@
+please enter a file name
+partBtest3
+Processing <story>
+Processing <s>
+Scanner called using word: dakara
+Match found for CONNECTOR
+Processing <noun>
+Scanner called using word: watashi
+Match found for PRONOUN
+Scanner called using word: de
+SYNTAX ERROR: expected SUBJECT but found de

@@ -1,0 +1,21 @@
+please enter a file name
+partBtest2
+Processing <story>
+Processing <s>
+Scanner called using word: soshite
+Match found for CONNECTOR
+Processing <noun>
+Scanner called using word: watashi
+Match found for PRONOUN
+Scanner called using word: wa
+Match found for SUBJECT
+Processing <afterSubject>
+Scanner called using word: rika
+Processing <noun>
+Match found for WORD1
+Processing <afterNoun>
+Scanner called using word: desu
+Processing <be>
+Match found for IS
+Scanner called using word: ne
+SYNTAX ERROR: expected PERIOD but found ne
